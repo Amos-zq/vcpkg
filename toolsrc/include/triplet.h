@@ -6,6 +6,12 @@ namespace vcpkg
 {
     struct triplet
     {
+        enum class BuildType
+        {
+            DYNAMIC,
+            STATIC
+        };
+
         static const triplet X86_WINDOWS;
         static const triplet X64_WINDOWS;
         static const triplet X86_UWP;
@@ -17,6 +23,8 @@ namespace vcpkg
         std::string architecture() const;
 
         std::string system() const;
+
+        BuildType build_type() const;
     };
 
     bool operator==(const triplet& left, const triplet& right);

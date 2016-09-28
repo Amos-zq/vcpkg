@@ -47,4 +47,14 @@ namespace vcpkg
         Checks::check_exit(it != this->value.end(), "Invalid triplet: %s", this->value);
         return std::string(it + 1, this->value.cend());
     }
+
+    triplet::BuildType triplet::build_type() const
+    {
+        if (this->value.find("static"))
+        {
+            return BuildType::STATIC;
+        }
+
+        return BuildType::DYNAMIC;
+    }
 }
