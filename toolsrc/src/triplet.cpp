@@ -50,7 +50,7 @@ namespace vcpkg
 
     triplet::BuildType triplet::build_type() const
     {
-        if (this->value.find("static"))
+        if (this->value.find("static") != std::string::npos)
         {
             return BuildType::STATIC;
         }
